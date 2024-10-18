@@ -11,29 +11,22 @@ export const CreatePostModal = () => {
     const [show, setShow] = useState(false);
 
     const toggleModel = () => setShow(!show);
-    const [html, setHtml] = useState("my <b>HTML</b>");
+
     const { data, setData, post, processing, errors } = useForm({
         tittle: "tittle",
         body: "body",
     });
 
-    function onChange(e) {
-        setHtml(e.target.value);
-    }
-
     const submitForm = (e) => {
-        e.preventDefault()
-        console.log(route("post.store"))
-        post(route("post.store")
-        // {
-        //     preserveScroll: true,
-        //     onSuccess: () => setShow(false),
-        // }
-    );
+        e.preventDefault();
+        console.log(route("post.store"));
+        post(route("post.store"), {
+            preserveScroll: true,
+            onSuccess: (res) => {
+                setShow(false);
+            },
+        });
     };
-
-    // const handleClose = () => setShow(false);
-    // const handleShow = () => setShow(true);
 
     return (
         <>
@@ -62,7 +55,11 @@ export const CreatePostModal = () => {
                                 }
                                 isValid={errors.tittle}
                             />
-                            {errors.tittle && <div>{errors.tittle}</div>}
+                            {errors.tittle && (
+                                <div className="text-red-500">
+                                    {errors.tittle}
+                                </div>
+                            )}
                         </Form.Group>
                         <Form.Group
                             className="mb-3"
@@ -75,10 +72,18 @@ export const CreatePostModal = () => {
                                     setData("body", e.target.value)
                                 }
                             />
-                            {errors.body && <div>{errors.body}</div>}
+                            {errors.body && (
+                                <div className="text-red-500 pt-1">
+                                    {errors.body}
+                                </div>
+                            )}
                         </Form.Group>
 
-                        <Button variant="primary" type="submit">
+                        <Button
+                            variant="primary"
+                            type="submit"
+                            disabled={processing}
+                        >
                             Submit
                         </Button>
                     </Form>
