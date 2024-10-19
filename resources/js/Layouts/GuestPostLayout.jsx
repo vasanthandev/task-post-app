@@ -4,6 +4,7 @@ import NavLink from "@/Components/NavLink";
 import ResponsiveNavLink from "@/Components/ResponsiveNavLink";
 import { Link, usePage } from "@inertiajs/react";
 import { useState } from "react";
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 export default function GuestPostLayout({ header, children }) {
     return (

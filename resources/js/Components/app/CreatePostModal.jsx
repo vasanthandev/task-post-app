@@ -12,9 +12,9 @@ export const CreatePostModal = () => {
 
     const toggleModel = () => setShow(!show);
 
-    const { data, setData, post, processing, errors } = useForm({
-        tittle: "tittle",
-        body: "body",
+    const { data, setData, post, processing, errors, reset  } = useForm({
+        tittle: "",
+        body: "",
     });
 
     const submitForm = (e) => {
@@ -24,6 +24,7 @@ export const CreatePostModal = () => {
             preserveScroll: true,
             onSuccess: (res) => {
                 setShow(false);
+                reset ();
             },
         });
     };

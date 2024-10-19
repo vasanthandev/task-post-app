@@ -3,8 +3,10 @@ import { Head } from "@inertiajs/react";
 import Button from "react-bootstrap/Button";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import { CreatePostModal } from "@/Components/app/CreatePostModal";
-
-function Index({ data }) {
+import InteractivePost from "@/Components/app/InteractivePost";
+import Pagination from "@/Components/Pagination";
+function Index({ posts }) {
+    console.log(posts);
     return (
         <AuthenticatedLayout>
             <Head title="Post" />
@@ -16,8 +18,18 @@ function Index({ data }) {
                     </div>
                     <div className="overflow-hidden bg-white shadow-sm sm:rounded-lg">
                         <div className="p-6 text-gray-900">
-                            {data.lenght ? (
-                                <div className="flex flex-col"></div>
+                            {posts.data.length ? (
+                                <div className="flex flex-col ">
+                                    {/* <Post /> */}
+                                    {posts.data.map((eachPost) => {
+                                        return (
+                                            <InteractivePost
+                                                post={eachPost}
+                                                key={eachPost.id}
+                                            />
+                                        );
+                                    })}
+                                </div>
                             ) : (
                                 <div>
                                     <div className="flex justify-center">
@@ -31,6 +43,7 @@ function Index({ data }) {
                                     </p>
                                 </div>
                             )}
+                             <Pagination links={posts.meta.links} />
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CommentController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
@@ -31,6 +32,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->group(function () {
     Route::get('/post',[PostController::class,'Index'])->name('post.index');
     Route::post('/post',[PostController::class,'Store'])->name('post.store');
+    Route::post('/like',[PostController::class,'Like'])->name('post.like');
+    Route::post('/comment',[CommentController::class,'Store'])->name('comment.store');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
