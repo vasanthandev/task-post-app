@@ -11,7 +11,7 @@ export default function Post({post}) {
                 <Card.Header as="h5">
                     <div className="flex items-center">
                         <div className="bg-orange-400 text-center p-3 mx-2 rounded-full">
-                            Rv
+                        {post.user_name.slice(0, 2)}
                         </div>
                         {post.user_name}
                     </div>
@@ -20,13 +20,13 @@ export default function Post({post}) {
                     <Card.Title> {post.tittle}</Card.Title>
                     <Card.Text> <div dangerouslySetInnerHTML={{ __html: post.body }} /></Card.Text>
                     <Card.Footer className="text-muted">
-                        <Row className="justify-content-end">
-                            <Col sm="auto"> {post.likes_count}</Col>
-                            <Col sm="auto">
+                        <Row className="justify-content-lg-end">
+                            <Col  xs={2} sm="auto"> {post.likes_count}</Col>
+                            <Col  xs={2} sm="auto">
                                 <FavoriteBorderOutlinedIcon></FavoriteBorderOutlinedIcon>
                             </Col>
-                            <Col sm="auto">{post.comments_count}</Col>
-                            <Col sm="auto">
+                            <Col  xs={2}sm="auto">{post.comments_count}</Col>
+                            <Col  xs={2} sm="auto">
                                 <ChatBubbleOutlineOutlinedIcon></ChatBubbleOutlineOutlinedIcon>
                             </Col>
                         </Row>

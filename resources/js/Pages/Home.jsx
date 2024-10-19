@@ -4,7 +4,7 @@ import { Head, Link } from "@inertiajs/react";
 import { usePage } from "@inertiajs/react";
 
 import PublicPost from "@/Components/app/PublicPost";
-import Pagination from "@/Components/Pagination";
+import Pagination from "react-bootstrap/Pagination";
 
 export default function Home({ posts, links }) {
     console.log(posts);
@@ -37,7 +37,48 @@ export default function Home({ posts, links }) {
                         </div>
                     )}
                 </div>
-                <Pagination links={posts.meta.links} />
+                <div className="flex justify-center pt-2">
+                                <Pagination>
+                                    <Pagination>
+                                        <Pagination.First>
+                                            <Link
+                                                preserveScroll
+                                                href={posts.links.first}
+                                                as="button"
+                                            >
+                                                First
+                                            </Link>
+                                        </Pagination.First>
+                                        <Pagination.Prev>
+                                            <Link
+                                                preserveScroll
+                                                href={posts.links.prev}
+                                                as="button"
+                                            >
+                                                Prev
+                                            </Link>
+                                        </Pagination.Prev>
+                                        <Pagination.Next>
+                                            <Link
+                                                preserveScroll
+                                                href={posts.links.next}
+                                                as="button"
+                                            >
+                                                Next
+                                            </Link>
+                                        </Pagination.Next>
+                                        <Pagination.Last>
+                                            <Link
+                                                preserveScroll
+                                                href={posts.links.last}
+                                                as="button"
+                                            >
+                                                Last
+                                            </Link>
+                                        </Pagination.Last>
+                                    </Pagination>
+                                </Pagination>
+                            </div>
             </GuestPostLayout>
         </>
     );

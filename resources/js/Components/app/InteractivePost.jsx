@@ -79,23 +79,22 @@ function InteractivePost({ post }) {
                             />
                         </Card.Text>
                         <Card.Footer className="text-muted">
-                            <Row className="justify-content-end">
-                                <Col sm="auto">{like.likes_count}</Col>
-                                <Col sm="auto" onClick={hitLiket}>
+                            <Row className="justify-content-md-end">
+                                <Col xs={2} sm="auto">{like.likes_count}</Col>
+                                <Col xs={2} sm="auto" onClick={hitLiket}>
                                     {like.is_liked ? (
                                         <FavoriteIcon />
                                     ) : (
                                         <FavoriteBorderOutlinedIcon />
                                     )}
                                 </Col>
-                                <Col sm="auto">{post.comments_count}</Col>
-                                <Col sm="auto">
+                                <Col xs={2} sm="auto">{post.comments_count}</Col>
+                                <Col xs={2} sm="auto">
                                     <CustomToggle eventKey="0">
                                         <ChatBubbleOutlineOutlinedIcon />
                                     </CustomToggle>
                                 </Col>
-
-                                <Accordion.Collapse eventKey="0">
+                                <Accordion.Collapse eventKey="0" className="mt-2">
                                     <div>
                                         <AddComment post_id={post.id} />
                                         {post.comments.map(
