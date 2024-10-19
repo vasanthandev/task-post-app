@@ -25,19 +25,7 @@ export default function Home({ posts, links }) {
                                     />
                                 );
                             })}
-                        </div>
-                    ) : (
-                        <div>
-                            <div className="flex justify-center">
-                                <img src="img\no_post_yet.png" alt="Logo" />
-                            </div>
-                            <p className="text-center">
-                                There is no post yet !
-                            </p>
-                        </div>
-                    )}
-                </div>
-                <div className="flex justify-center pt-2">
+                            <div className="flex justify-center pt-2">
                                 <Pagination>
                                     <Pagination>
                                         <Pagination.First>
@@ -79,6 +67,18 @@ export default function Home({ posts, links }) {
                                     </Pagination>
                                 </Pagination>
                             </div>
+                        </div>
+                    ) : (
+                        <div>
+                            <div className="flex justify-center">
+                                <img src="img\no_post_yet.png" alt="Logo" />
+                            </div>
+                            <p className="text-center">
+                                There is no post yet !
+                            </p>
+                        </div>
+                    )}
+                </div>
             </GuestPostLayout>
         </>
     );

@@ -29,6 +29,48 @@ function Index({ posts }) {
                                             />
                                         );
                                     })}
+                                    <div className="flex justify-center pt-2">
+                                        <Pagination>
+                                            <Pagination>
+                                                <Pagination.First>
+                                                    <Link
+                                                        preserveScroll
+                                                        href={posts.links.first}
+                                                        as="button"
+                                                    >
+                                                        First
+                                                    </Link>
+                                                </Pagination.First>
+                                                <Pagination.Prev>
+                                                    <Link
+                                                        preserveScroll
+                                                        href={posts.links.prev}
+                                                        as="button"
+                                                    >
+                                                        Prev
+                                                    </Link>
+                                                </Pagination.Prev>
+                                                <Pagination.Next>
+                                                    <Link
+                                                        preserveScroll
+                                                        href={posts.links.next}
+                                                        as="button"
+                                                    >
+                                                        Next
+                                                    </Link>
+                                                </Pagination.Next>
+                                                <Pagination.Last>
+                                                    <Link
+                                                        preserveScroll
+                                                        href={posts.links.last}
+                                                        as="button"
+                                                    >
+                                                        Last
+                                                    </Link>
+                                                </Pagination.Last>
+                                            </Pagination>
+                                        </Pagination>
+                                    </div>
                                 </div>
                             ) : (
                                 <div>
@@ -44,49 +86,6 @@ function Index({ posts }) {
                                 </div>
                             )}
                             {/* <Pagination links={posts.meta.links} /> */}
-
-                            <div className="flex justify-center pt-2">
-                                <Pagination>
-                                    <Pagination>
-                                        <Pagination.First>
-                                            <Link
-                                                preserveScroll
-                                                href={posts.links.first}
-                                                as="button"
-                                            >
-                                                First
-                                            </Link>
-                                        </Pagination.First>
-                                        <Pagination.Prev>
-                                            <Link
-                                                preserveScroll
-                                                href={posts.links.prev}
-                                                as="button"
-                                            >
-                                                Prev
-                                            </Link>
-                                        </Pagination.Prev>
-                                        <Pagination.Next>
-                                            <Link
-                                                preserveScroll
-                                                href={posts.links.next}
-                                                as="button"
-                                            >
-                                                Next
-                                            </Link>
-                                        </Pagination.Next>
-                                        <Pagination.Last>
-                                            <Link
-                                                preserveScroll
-                                                href={posts.links.last}
-                                                as="button"
-                                            >
-                                                Last
-                                            </Link>
-                                        </Pagination.Last>
-                                    </Pagination>
-                                </Pagination>
-                            </div>
                         </div>
                     </div>
                 </div>
