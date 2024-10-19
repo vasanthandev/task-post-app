@@ -31,6 +31,7 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware(['auth',LogMiddleware::class])->group(function () {
+    Route::redirect('/', '/post');
     Route::get('/post',[PostController::class,'Index'])->name('post.index');
     Route::post('/post',[PostController::class,'Store'])->name('post.store');
     Route::post('/like',[PostController::class,'Like'])->name('post.like');
